@@ -195,8 +195,8 @@ void fetch_printer_data()
     {
         klipper_request_consecutive_fail_count++;
         Serial.printf("Failed to fetch printer data: %d\n", httpCode);
-        unfreeze_request_thread();
     }
+        unfreeze_request_thread();
 }
 
 void data_loop()
