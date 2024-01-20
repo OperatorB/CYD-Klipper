@@ -47,6 +47,9 @@ void LoadGlobalConfig() {
     global_config.bed_presets[0] = 0;
     global_config.bed_presets[1] = 60;
     global_config.bed_presets[2] = 70;
+    global_config.LEDcolors[0] = 0;
+    global_config.LEDcolors[1] = 0;
+    global_config.LEDcolors[2] = 0;
     VerifyVersion();
     Preferences preferences;
     preferences.begin("global_config", true);
