@@ -7,17 +7,21 @@
 #define CPU_FREQ_HIGH 240
 #define CPU_FREQ_LOW 80
 
-#include <XPT2046_Touchscreen.h>
+#include <TAMC_GT911.h>
 #include <TFT_eSPI.h>
 
-#define XPT2046_IRQ 36
-#define XPT2046_MOSI 32
-#define XPT2046_MISO 39
-#define XPT2046_CLK 25
-#define XPT2046_CS 33
+#define TOUCH_SDA  33
+#define TOUCH_SCL  32
+#define TOUCH_INT 21
+#define TOUCH_RST 25
+#define TOUCH_WIDTH 320
+#define TOUCH_HEIGHT 480
 
-TS_Point touchscreen_point();
-void touchscreen_calibrate(bool force = false);
+#define LED_PIN_R 4
+#define LED_PIN_G 16
+#define LED_PIN_B 17
+
+// TS_Point touchscreen_point();
 void screen_setBrightness(byte brightness);
 void screen_timer_setup();
 void screen_timer_start();
@@ -29,6 +33,8 @@ void set_invert_display();
 void screen_timer_wake();
 void set_screen_timer_period();
 void set_screen_brightness();
+void LED_init();
+void set_LED_color(uint8_t rgbValue[3]);
 
 extern TFT_eSPI tft;
 
