@@ -39,6 +39,8 @@ typedef struct _GLOBAL_CONFIG {
 
     unsigned short hotend_presets[3];
     unsigned short bed_presets[3];
+
+    unsigned char LEDcolors[3];
 } GLOBAL_CONFIG;
     
 typedef struct _COLOR_DEF {
