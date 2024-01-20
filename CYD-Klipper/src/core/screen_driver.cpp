@@ -184,7 +184,7 @@ void screen_setup()
     // Initialize the display
     tft.init();
     ledcSetup(0, 5000, 12);
-    ledcAttachPin(21, 0);
+    ledcAttachPin(TFT_BL, 0);
     tft.setRotation(global_config.rotateScreen ? 3 : 1);
     tft.fillScreen(TFT_BLACK);
     set_screen_brightness();
