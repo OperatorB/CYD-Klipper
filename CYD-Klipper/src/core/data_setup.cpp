@@ -187,17 +187,16 @@ void fetch_printer_data()
         {
             printer.state = printer_state;
             lv_msg_send(DATA_PRINTER_STATE, &printer);
-            unfreeze_render_thread();
         }
-
-        
+        unfreeze_render_thread();
     }
     else
     {
         klipper_request_consecutive_fail_count++;
         Serial.printf("Failed to fetch printer data: %d\n", httpCode);
-    }
         unfreeze_request_thread();
+    }
+
 }
 
 void data_loop()
