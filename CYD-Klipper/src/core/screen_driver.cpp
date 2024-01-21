@@ -18,7 +18,7 @@ lv_timer_t *screenSleepTimer;
 
 void screen_setBrightness(byte brightness)
 {
-        // calculate duty, 4095 from 2 ^ 12 - 1
+    // calculate duty, 4095 from 2 ^ 12 - 1
     uint32_t duty = (4095 / 255) * brightness;
 
     // write duty to LEDC
@@ -114,8 +114,18 @@ void screen_lv_touchRead(lv_indev_drv_t *indev_driver, lv_indev_data_t *data)
         data->state = LV_INDEV_STATE_PR;
         for (int i = 0; i < tp.touches; i++)
         {
-            uint16_t magicX = TOUCH_HEIGHT - tp.points[i].y; // fix GT911 driver - orientation
-            uint16_t magicY = tp.points[i].x;
+            uint16_t magicX; // fix GT911 driver - orientation and handle rotation
+            uint16_t magicY;
+            if (!global_config.rotateScreen)
+            {
+                magicY = tp.points[i].x;
+                magicX = TOUCH_HEIGHT - tp.points[i].y;
+            }
+            else
+            {
+                magicY = TOUCH_WIDTH - tp.points[i].x;
+                magicX = tp.points[i].y;
+            }
 
             data->point.x = magicX;
             data->point.y = magicY;
