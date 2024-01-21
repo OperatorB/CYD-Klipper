@@ -11,21 +11,115 @@
     .main {
       width: fit-content;
       margin: auto;
+
     }
+
+    .dark-mode {
+      background-color: rgb(19, 20, 46);
+      color: white;
+    }
+
+    .light-mode {
+      background-color: white;
+      color: rgb(19, 20, 46);
+    }
+
+    .switch {
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  height: 15px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 13px;
+  width: 13px;
+  left: 1px;
+  bottom: 1px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(15px);
+  -ms-transform: translateX(15px);
+  transform: translateX(15px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 15px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
   </style>
   <script type="module" src="https://unpkg.com/esp-web-tools@9/dist/web/install-button.js?module"></script>
 </head>
 
 <body>
-  <section class="main">
+  <script>
+    function toggleMode() {
+      var checkBox = document.getElementById("myCheck");
+      var text = document.getElementById("text");
+      if (checkBox.checked == true) {
+        let element = document.body;
+        element.className = "dark-mode";
+      } else {
+        let element = document.body;
+        element.className = "light-mode";
+      }
+    }
+  </script>
+
+<body onload="toggleMode()"></body>
+
+<section class="main">
     <h2>CYD 3.5" Klipper</h2>
     <p>An implementation of a Klipper status display on an ESP32 + screen.<br>Uses Moonraker to fetch data.</p>
-    <a href="https://github.com/OperatorB/CYD-Klipper"><img alt="GitHub repo" src="https://img.shields.io/badge/Source-Github-blue.svg"></a>
+    <a href="https://github.com/OperatorB/CYD-Klipper"><img alt="GitHub repo"
+        src="https://img.shields.io/badge/Source-Github-blue.svg"></a>
     <section class="install">
       <h3>Install</h3>
       <p>Note: You may need to hold the 'BOOT' button on the device while pressing install</p>
-      <esp-web-install-button
-        manifest="https://OperatorB.github.io/CYD-Klipper/manifest.json"></esp-web-install-button>
+      <esp-web-install-button manifest="https://OperatorB.github.io/CYD-Klipper/manifest.json"></esp-web-install-button>
     </section>
+    <p id="DarkModetext">
+    <label for="myCheck">Dark Mode:</label>
+    <label class="switch">
+      <input type="checkbox" checked id="myCheck" onclick="toggleMode()">
+      <span class="slider round"></span>
+    </label>
+  </p>
   </section>
 </body>
