@@ -11,6 +11,7 @@ static char z_pos_buffer[10];
 static char time_buffer[10];
 
 static lv_style_t nav_button_text_style;
+static lv_style_t global_text_style;
 
 static void update_printer_data_z_pos(lv_event_t * e) {
     lv_obj_t * label = lv_event_get_target(e);
@@ -22,7 +23,7 @@ static void update_printer_data_z_pos(lv_event_t * e) {
 static void update_printer_data_temp(lv_event_t * e) {
     lv_obj_t * label = lv_event_get_target(e);
 
-    sprintf(temp_buffer, "%.0f/%.0f", printer.extruder_temp, printer.bed_temp);
+    sprintf(temp_buffer, "%.0f\n%.0f", printer.extruder_temp, printer.bed_temp);
     lv_label_set_text(label, temp_buffer);
 }
 
@@ -78,11 +79,11 @@ static void btn_click_macros(lv_event_t * e){
 void nav_buttons_setup(unsigned char active_panel){
     lv_obj_clean(lv_scr_act());
     lv_obj_clear_flag(lv_scr_act(), LV_OBJ_FLAG_SCROLLABLE);
-    sprintf(temp_buffer, "%.0f/%.0f", printer.extruder_temp, printer.bed_temp);
+    sprintf(temp_buffer, "%.0f\n%.0f", printer.extruder_temp, printer.bed_temp);
     sprintf(z_pos_buffer, "Z%.2f", printer.position[2]);
 
-    const int button_width = 40;
-    const int button_height = 60;
+    const int button_width = 50;
+    const int button_height = 80;
     const int icon_text_spacing = 10;
 
     // Files/Print
@@ -134,7 +135,7 @@ void nav_buttons_setup(unsigned char active_panel){
 
     label = lv_label_create(btn);
     lv_label_set_text(label, temp_buffer);
-    lv_obj_align(label, LV_ALIGN_CENTER, 0, icon_text_spacing);
+    lv_obj_align(label, LV_ALIGN_CENTER, 0, 1.7 * icon_text_spacing);
     lv_obj_add_event_cb(label, update_printer_data_temp, LV_EVENT_MSG_RECEIVED, NULL);
     lv_msg_subsribe_obj(DATA_PRINTER_DATA, label, NULL);
     lv_obj_add_style(label, &nav_button_text_style, 0);
@@ -156,6 +157,7 @@ void nav_buttons_setup(unsigned char active_panel){
     lv_obj_add_style(label, &nav_button_text_style, 0);
 
     lv_obj_t * panel = lv_obj_create(lv_scr_act());
+    lv_obj_add_style(panel, &global_text_style, 0);
     lv_obj_set_size(panel, TFT_HEIGHT - button_width, TFT_WIDTH);
     lv_obj_align(panel, LV_ALIGN_TOP_RIGHT, 0, 0);
     lv_obj_set_style_border_width(panel, 0, 0);
@@ -186,5 +188,6 @@ void nav_style_setup(){
     lv_style_set_radius(&nav_button_style, 0);
 
     lv_style_init(&nav_button_text_style);
-    lv_style_set_text_font(&nav_button_text_style, &lv_font_montserrat_10);
+    lv_style_set_text_font(&nav_button_text_style, &lv_font_montserrat_14);
+    lv_style_set_text_font(&global_text_style, &lv_font_montserrat_16);
 }
