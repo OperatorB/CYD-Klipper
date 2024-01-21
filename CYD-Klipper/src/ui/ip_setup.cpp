@@ -9,6 +9,7 @@ bool connect_ok = false;
 lv_obj_t * ipEntry;
 lv_obj_t * portEntry;
 lv_obj_t * label = NULL;
+static lv_style_t ip_text_style;
 
 void ip_init_inner();
 
@@ -71,6 +72,8 @@ static void reset_btn_event_handler(lv_event_t * e){
 
 void ip_init_inner(){
     lv_obj_clean(lv_scr_act());
+    lv_style_set_text_font(&ip_text_style, &lv_font_montserrat_16);
+    lv_obj_add_style(lv_scr_act(), &ip_text_style, 0);
 
     if (global_config.ipConfigured) {
         label = lv_label_create(lv_scr_act());
