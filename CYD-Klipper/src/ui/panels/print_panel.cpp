@@ -8,6 +8,8 @@
 
 FILESYSTEM_FILE* selected_file = NULL;
 
+static lv_style_t print_text_style;
+
 static void btn_print_file(lv_event_t * e){
     lv_obj_t * panel = (lv_obj_t*)lv_event_get_user_data(e);
     lv_obj_del(panel);
@@ -48,8 +50,10 @@ static void btn_print_file_verify(lv_event_t * e){
     lv_obj_t * btn = lv_event_get_target(e);
     selected_file = (FILESYSTEM_FILE*)lv_event_get_user_data(e);
     
+    lv_style_set_text_font(&print_text_style, &lv_font_montserrat_16);
     lv_obj_t * panel = lv_obj_create(lv_scr_act());
-    lv_obj_set_size(panel, TFT_HEIGHT - 40, TFT_WIDTH - 30);
+    lv_obj_add_style(panel, &print_text_style, 0);
+    lv_obj_set_size(panel, TFT_HEIGHT - 50, TFT_WIDTH - 40);
     lv_obj_align(panel, LV_ALIGN_CENTER, 0, 0);
 
     lv_obj_t * label = lv_label_create(panel);
@@ -64,7 +68,7 @@ static void btn_print_file_verify(lv_event_t * e){
 
     btn = lv_btn_create(panel);
     lv_obj_align(btn, LV_ALIGN_BOTTOM_LEFT, 10, -10);
-    lv_obj_set_size(btn, 40, 40);
+    lv_obj_set_size(btn, 60, 60);
     lv_obj_add_event_cb(btn, btn_print_back, LV_EVENT_CLICKED, panel);
 
     label = lv_label_create(btn);
@@ -73,7 +77,7 @@ static void btn_print_file_verify(lv_event_t * e){
 
     btn = lv_btn_create(panel);
     lv_obj_align(btn, LV_ALIGN_BOTTOM_RIGHT, -10, -10);
-    lv_obj_set_size(btn, 40, 40);
+    lv_obj_set_size(btn, 60, 60);
     lv_obj_add_event_cb(btn, btn_print_file, LV_EVENT_CLICKED, panel);
     
     label = lv_label_create(btn);
@@ -87,9 +91,9 @@ void print_panel_init(lv_obj_t* panel){
         return;
     }
 
-    auto panel_width = TFT_HEIGHT - 40;
-    auto panel_height_margin = TFT_WIDTH - 10;
-    auto panel_width_margin = panel_width - 10;
+    auto panel_width = TFT_HEIGHT - 50;
+    auto panel_height_margin = TFT_WIDTH - 20;
+    auto panel_width_margin = panel_width - 20;
 
     lv_obj_t * list = lv_list_create(panel);
     lv_obj_set_size(list, panel_width_margin, panel_height_margin);
