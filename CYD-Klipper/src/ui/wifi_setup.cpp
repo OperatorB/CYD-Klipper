@@ -1,8 +1,10 @@
 #include "lvgl.h"
 #include "wifi_setup.h"
 #include "../conf/global_config.h"
-
 #include "WiFi.h"
+
+static lv_style_t wifi_text_style;
+
 void wifi_init_inner();
 
 static void reset_btn_event_handler(lv_event_t * e) {
@@ -46,6 +48,8 @@ static void ta_event_cb(lv_event_t * e) {
 
 void wifi_pass_entry(const char* ssid){
     lv_obj_clean(lv_scr_act());
+    lv_style_set_text_font(&wifi_text_style, &lv_font_montserrat_16);
+    lv_obj_add_style(lv_scr_act(), &wifi_text_style, 0);
 
     lv_obj_t * label = lv_label_create(lv_scr_act());
     lv_label_set_text(label, "Enter WiFi Password");
@@ -78,6 +82,8 @@ static void wifi_btn_event_handler(lv_event_t * e){
 void wifi_init_inner(){
     WiFi.disconnect();
     lv_obj_clean(lv_scr_act());
+    lv_style_set_text_font(&wifi_text_style, &lv_font_montserrat_16);
+    lv_obj_add_style(lv_scr_act(), &wifi_text_style, 0);
 
     if (global_config.wifiConfigured){
         WiFi.begin(global_config.wifiSSID, global_config.wifiPassword);
