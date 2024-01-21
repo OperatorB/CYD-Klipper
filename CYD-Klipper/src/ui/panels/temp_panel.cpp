@@ -127,7 +127,7 @@ static void keyboard_callback(lv_event_t * e){
 static void show_keyboard(lv_event_t * e){
     lv_obj_t * keyboard = lv_keyboard_create(root_panel);
     lv_obj_t * ta = lv_textarea_create(root_panel);
-    lv_obj_set_size(ta, TFT_HEIGHT - 40, 120);
+    lv_obj_set_size(ta, TFT_HEIGHT - 50, 160);
     lv_obj_align(ta, LV_ALIGN_TOP_MID, 0, 0);
     lv_textarea_set_max_length(ta, 3);
     //lv_textarea_set_one_line(ta, true);
@@ -206,8 +206,8 @@ void temp_panel_init(lv_obj_t* panel){
     root_panel = panel;
     edit_mode = false;
     const int btn_row_y_one = 30;
-    const int btn_row_y_two = 100;
-    auto panel_width = TFT_HEIGHT - 40;
+    const int btn_row_y_two = 120;
+    auto panel_width = TFT_HEIGHT - 50;
     lv_obj_t * label = lv_label_create(panel);
     lv_label_set_text(label, "???");
     lv_obj_align(label, LV_ALIGN_TOP_LEFT, 10, 10);
@@ -216,14 +216,14 @@ void temp_panel_init(lv_obj_t* panel){
 
     label = lv_label_create(panel);
     lv_label_set_text(label, "???");
-    lv_obj_align(label, LV_ALIGN_TOP_LEFT, 10, 80);
+    lv_obj_align(label, LV_ALIGN_TOP_LEFT, 10, 100);
     lv_obj_add_event_cb(label, update_printer_data_bed_temp, LV_EVENT_MSG_RECEIVED, NULL);
     lv_msg_subscribe_obj(DATA_PRINTER_DATA, label, NULL);
 
     lv_obj_t * btn = lv_btn_create(panel);
     lv_obj_align(btn, LV_ALIGN_TOP_RIGHT, -10, btn_row_y_one);
     lv_obj_add_event_cb(btn, show_keyboard_with_hotend, LV_EVENT_CLICKED, panel);
-    lv_obj_set_width(btn, panel_width / 4 - 10);
+    lv_obj_set_size(btn, panel_width / 4 - 10, 50);
 
     label = lv_label_create(btn);
     lv_label_set_text(label, "Set");
@@ -232,7 +232,7 @@ void temp_panel_init(lv_obj_t* panel){
     btn = lv_btn_create(panel);
     lv_obj_align(btn, LV_ALIGN_TOP_RIGHT, -10, btn_row_y_two);
     lv_obj_add_event_cb(btn, show_keyboard_with_bed, LV_EVENT_CLICKED, panel);
-    lv_obj_set_width(btn, panel_width / 4 - 10);
+    lv_obj_set_size(btn, panel_width / 4 - 10, 50);
 
     label = lv_label_create(btn);
     lv_label_set_text(label, "Set");
@@ -245,7 +245,7 @@ void temp_panel_init(lv_obj_t* panel){
         btn = lv_btn_create(panel);
         lv_obj_align(btn, LV_ALIGN_TOP_LEFT, x_pos, btn_row_y_one);
         lv_obj_add_event_cb(btn, set_temp_via_preset, LV_EVENT_CLICKED, reinterpret_cast<void*>(TARGET_HOTEND_CONFIG_1 + i));
-        lv_obj_set_width(btn, panel_width / 4 - 10);
+        lv_obj_set_size(btn, panel_width / 4 - 10, 50);
 
         label = lv_label_create(btn);
         lv_label_set_text(label, "???");
@@ -256,7 +256,7 @@ void temp_panel_init(lv_obj_t* panel){
         btn = lv_btn_create(panel);
         lv_obj_align(btn, LV_ALIGN_TOP_LEFT, x_pos, btn_row_y_two);
         lv_obj_add_event_cb(btn, set_temp_via_preset, LV_EVENT_CLICKED, reinterpret_cast<void*>(TARGET_BED_CONFIG_1 + i));
-        lv_obj_set_width(btn, panel_width / 4 - 10);
+        lv_obj_set_size(btn, panel_width / 4 - 10, 50);
 
         label = lv_label_create(btn);
         lv_label_set_text(label, "???");
@@ -266,8 +266,8 @@ void temp_panel_init(lv_obj_t* panel){
     }
 
     btn = lv_btn_create(panel);
-    lv_obj_align(btn, LV_ALIGN_BOTTOM_LEFT, 10, -50);
-    lv_obj_set_size(btn, panel_width / 2 - 15, 40);
+    lv_obj_align(btn, LV_ALIGN_BOTTOM_LEFT, 10, -70);
+    lv_obj_set_size(btn, panel_width / 2 - 15, 50);
     lv_obj_add_event_cb(btn, cooldown_temp, LV_EVENT_CLICKED, panel);
 
     label = lv_label_create(btn);
@@ -275,10 +275,10 @@ void temp_panel_init(lv_obj_t* panel){
     lv_obj_center(label);
 
     btn = lv_btn_create(panel);
-    lv_obj_align(btn, LV_ALIGN_BOTTOM_RIGHT, -10, -50);
+    lv_obj_align(btn, LV_ALIGN_BOTTOM_RIGHT, -10, -70);
+    lv_obj_set_size(btn, panel_width / 2 - 15, 50);
     lv_obj_add_event_cb(btn, btn_toggleable_edit, LV_EVENT_CLICKED, NULL);
     lv_obj_add_flag(btn, LV_OBJ_FLAG_CHECKABLE);
-    lv_obj_set_size(btn, panel_width / 2 - 15, 40);
 
     label = lv_label_create(btn);
     lv_label_set_text(label, "Edit Presets");
@@ -286,8 +286,8 @@ void temp_panel_init(lv_obj_t* panel){
 
     btn = lv_btn_create(panel);
     lv_obj_align(btn, LV_ALIGN_BOTTOM_LEFT, 10, -5);
+    lv_obj_set_size(btn, panel_width / 2 - 15, 50);
     lv_obj_add_event_cb(btn, btn_extrude, LV_EVENT_CLICKED, NULL);
-    lv_obj_set_size(btn, panel_width / 2 - 15, 40);
 
     label = lv_label_create(btn);
     lv_label_set_text(label, LV_SYMBOL_DOWN " Extrude");
@@ -295,8 +295,8 @@ void temp_panel_init(lv_obj_t* panel){
 
     btn = lv_btn_create(panel);
     lv_obj_align(btn, LV_ALIGN_BOTTOM_RIGHT, -10, -5);
+    lv_obj_set_size(btn, panel_width / 2 - 15, 50);
     lv_obj_add_event_cb(btn, btn_retract, LV_EVENT_CLICKED, NULL);
-    lv_obj_set_size(btn, panel_width / 2 - 15, 40);
 
     label = lv_label_create(btn);
     lv_label_set_text(label, LV_SYMBOL_UP " Retract");
