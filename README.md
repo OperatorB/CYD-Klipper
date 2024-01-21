@@ -3,7 +3,10 @@ An implementation of a wireless Klipper status display on an ESP32 + 3.5" screen
 
 A simple and cheap solution to use a dedicated screen with Klipper, a 3d printing Firmware.
 
-![showcase_image]()
+ESP32-3248S035             |  3.5" display
+:-------------------------:|:-------------------------:
+![1](images/20240121_124444.jpg)|![2](images/20240121_124612.jpg)
+![11](images/Dimensions-ESP32-3248S035.jpg)|![12](images/Dimensions-ESP32-3248S035.jpg)
 
 ### Required hardware
 
@@ -27,6 +30,16 @@ On initial install, all data should be wiped. On updates, data should be able to
 There are no 'over the air' updates. Each update has to be applied manually.
 
 ### Screenshots
+3.5" display                 |  Capacitive
+:-------------------------:|:-------------------------:
+![3](images/20240121_124822.jpg)|![4](images/20240121_124828.jpg)
+![5](images/20240121_124833.jpg)|![6](images/20240121_124837.jpg)
+![7](images/20240121_124842.jpg)|![7](images/20240121_124848.jpg)
+![9](images/20240121_124854.jpg)|![10](images/20240121_125012.jpg)
+
+### Enclosure
+
+[Display Enclosure ESP32-3248S035](https://cults3d.com/:1482031)
 
 ### Credits
 - [CYD-Klipper](https://github.com/suchmememanyskill/CYD-Klipper)
