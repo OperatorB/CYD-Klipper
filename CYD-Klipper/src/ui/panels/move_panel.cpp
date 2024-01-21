@@ -3,6 +3,7 @@
 #include "../../core/data_setup.h"
 #include <TFT_eSPI.h>
 
+
 static void move_printer(const char* axis, float amount) {
     if (!printer.homed_axis || printer.state == PRINTER_STATE_PRINTING)
         return;
@@ -109,35 +110,34 @@ static void stepper_state_update(lv_event_t * e){
 
 void move_panel_init(lv_obj_t* panel){
     lv_obj_clear_flag(panel, LV_OBJ_FLAG_SCROLLABLE);
-    const int button_size = 40;
-    const int button_size_vertical = 40;
-    const int button_padding = 2;
+    const int button_size = 55;
+    const int button_size_vertical = 50;
+    const int button_padding = 15;
     const int x_offset = 15;
-    int y_pos = 75;
-
-    auto panel_width = TFT_HEIGHT - 40;
+    int y_pos = 105;
+    auto panel_width = TFT_HEIGHT - 50;
 
     lv_obj_t * home_button = lv_btn_create(panel);
     lv_obj_align(home_button, LV_ALIGN_TOP_LEFT, 10, 5);
     lv_obj_add_event_cb(home_button, home_button_click, LV_EVENT_CLICKED, NULL);
-    lv_obj_set_size(home_button, panel_width / 2 - 15, 30);
+    lv_obj_set_size(home_button, panel_width / 2 - 15, 50);
 
     lv_obj_t * home_label = lv_label_create(home_button);
-    lv_label_set_text(home_label, LV_SYMBOL_HOME "Home Axis");
+    lv_label_set_text(home_label, LV_SYMBOL_HOME " Home Axis");
     lv_obj_center(home_label);
 
     lv_obj_t * disable_steppers_button = lv_btn_create(panel);
     lv_obj_align(disable_steppers_button, LV_ALIGN_TOP_RIGHT, -10, 5);
     lv_obj_add_event_cb(disable_steppers_button, disable_steppers_click, LV_EVENT_CLICKED, NULL);
-    lv_obj_set_size(disable_steppers_button, panel_width / 2 - 15, 30);
+    lv_obj_set_size(disable_steppers_button, panel_width / 2 - 15, 50);
 
     lv_obj_t * disable_steppers_label = lv_label_create(disable_steppers_button);
-    lv_label_set_text(disable_steppers_label, LV_SYMBOL_EYE_CLOSE "Disable Step");
+    lv_label_set_text(disable_steppers_label, LV_SYMBOL_EYE_CLOSE " Disable Step");
     lv_obj_center(disable_steppers_label);
 
     lv_obj_t * label = lv_label_create(panel);
     lv_label_set_text(label, "???");
-    lv_obj_align(label, LV_ALIGN_TOP_MID, 0, 40);
+    lv_obj_align(label, LV_ALIGN_TOP_MID, 0, 60);
     lv_obj_add_event_cb(label, stepper_state_update, LV_EVENT_MSG_RECEIVED, NULL);
     lv_msg_subsribe_obj(DATA_PRINTER_DATA, label, NULL);
 
@@ -198,11 +198,11 @@ void move_panel_init(lv_obj_t* panel){
 
         label = lv_label_create(panel);
         lv_label_set_text(label, "???");
-        lv_obj_align(label, LV_ALIGN_TOP_LEFT, x_offset, y_pos - 15);\
+        lv_obj_align(label, LV_ALIGN_TOP_LEFT, x_offset, y_pos - 20);\
         lv_obj_add_event_cb(label, position_callbacks[i], LV_EVENT_MSG_RECEIVED, NULL);
         lv_msg_subsribe_obj(DATA_PRINTER_DATA, label, NULL);
 
-        y_pos += 60;
+        y_pos += 75;
     }
 
     lv_msg_send(DATA_PRINTER_DATA, &printer);
