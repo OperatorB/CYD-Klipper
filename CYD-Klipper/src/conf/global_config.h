@@ -11,7 +11,6 @@ typedef struct _GLOBAL_CONFIG {
         unsigned char raw;
         struct {
             // Internal
-            bool screenCalibrated : 1;
             bool wifiConfigured : 1;
             bool ipConfigured : 1;
 
