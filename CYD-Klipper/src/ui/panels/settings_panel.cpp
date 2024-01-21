@@ -90,7 +90,6 @@ static void rotate_screen_switch(lv_event_t *e)
     auto state = lv_obj_get_state(lv_event_get_target(e));
     bool checked = (state & LV_STATE_CHECKED == LV_STATE_CHECKED);
     global_config.rotateScreen = checked;
-    global_config.screenCalibrated = false;
     WriteGlobalConfig();
     ESP.restart();
 }
@@ -105,9 +104,9 @@ static void on_during_print_switch(lv_event_t *e)
 }
 
 int y_offset = 0;
-const int y_element_size = 50;
-const int y_seperator_size = 1;
-const int y_seperator_x_padding = 50;
+const int y_element_size = 60;
+const int y_seperator_size = 2;
+const int y_seperator_x_padding = 40;
 const int panel_width = TFT_HEIGHT - 40;
 const int y_element_x_padding = 30;
 const static lv_point_t line_points[] = {{0, 0}, {panel_width - y_seperator_x_padding, 0}};
@@ -129,10 +128,10 @@ void create_settings_widget(const char *label_text, lv_obj_t *object, lv_obj_t *
 
     lv_obj_t *label = lv_label_create(panel);
     lv_label_set_text(label, label_text);
-    lv_obj_align(label, LV_ALIGN_LEFT_MID, 0, 0);
+    lv_obj_align(label, LV_ALIGN_LEFT_MID, 5, 0);
 
     lv_obj_set_parent(object, panel);
-    lv_obj_align(object, LV_ALIGN_RIGHT_MID, 0, 0);
+    lv_obj_align(object, LV_ALIGN_RIGHT_MID, -15, 0);
     y_offset += y_element_size;
 }
 
