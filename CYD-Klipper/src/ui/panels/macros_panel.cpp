@@ -56,11 +56,10 @@ void create_macro_widget(const char* macro, lv_obj_t* root_panel){
 }
 
 void macros_panel_init(lv_obj_t* panel) {
-    y_offset_macros = 40;
-
+    y_offset_macros = 50;
     lv_obj_t * btn = lv_btn_create(panel);
     lv_obj_add_event_cb(btn, btn_goto_settings, LV_EVENT_CLICKED, NULL);
-    lv_obj_set_size(btn, TFT_HEIGHT - 40 - 20, 30);
+    lv_obj_set_size(btn, TFT_HEIGHT - 50 - 20, 50);
     lv_obj_align(btn, LV_ALIGN_TOP_MID, 0, 5);
 
     lv_obj_t * label = lv_label_create(btn);
