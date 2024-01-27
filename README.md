@@ -10,7 +10,7 @@ ESP32-3248S035             |  3.5" display
 
 ### Required hardware
 
-A ESP32-3248S035C is required to run this project. You can find out where to buy these on the ["ESP32 Cheap Yellow Display 3.5""]() repository.
+A ESP32-3248S035C is required to run this project. You can find out where to buy these on the ["ESP32 Cheap Yellow Display 3.5""](https://s.click.aliexpress.com/e/_DFOFokz) repository.
 
 ### Features
 - View printer status
