@@ -3,7 +3,9 @@ An implementation of a wireless Klipper status display on an ESP32 + 3.5" screen
 
 A simple and cheap solution to use a dedicated screen with Klipper, a 3d printing Firmware.
 
-ESP32-3248S035             |  3.5" display
+***Note - this display might have a missing resistor R25 whose solder pads needs to be bridged with soldering! Check below for more details.***
+
+ESP32-3248S035C            |  3.5" display
 :-------------------------:|:-------------------------:
 ![1](images/20240121_124444.jpg)|![2](images/20240121_124612.jpg)
 ![11](images/Dimensions-ESP32-3248S035.jpg)|![12](images/Dimensions-ESP32-3248S035.jpg)
@@ -29,13 +31,22 @@ On initial install, all data should be wiped. On updates, data should be able to
 
 There are no 'over the air' updates. Each update has to be applied manually.
 
-### Screenshots
-3.5" display                 |  Capacitive
+### Images
+3.5" display               |  Capacitive
 :-------------------------:|:-------------------------:
 ![3](images/20240121_124822.jpg)|![4](images/20240121_124828.jpg)
 ![5](images/20240121_124833.jpg)|![6](images/20240121_124837.jpg)
 ![7](images/20240121_124842.jpg)|![7](images/20240121_124848.jpg)
 ![9](images/20240121_124854.jpg)|![10](images/20240121_125012.jpg)
+
+### GT911 issue and fix
+Touch driver [GT911 uses an INT](https://github.com/TAMCTec/gt911-arduino/issues/7) line for selecting I2C address during bus initialization. Unfortunately,
+you might find a missing resistor (R25) onboard which breaks this line between GPIO25 and GT911 INT.
+To fix the derived issues the easiest way is to bridge the pads of R25 with soldering. See below.
+
+3.5" display               |  GT911
+:-------------------------:|:-------------------------:
+![13](images/R25missing.jpg)|![14](images/R25bridged.jpg)
 
 ### Enclosure
 
