@@ -7,8 +7,8 @@ A simple and cheap solution to use a dedicated screen with Klipper, a 3d printin
 
 ESP32-3248S035C            |  3.5" display
 :-------------------------:|:-------------------------:
-![1](images/20240121_124444.jpg)|![2](images/20240121_124612.jpg)
-![11](images/Dimensions-ESP32-3248S035.jpg)|![12](images/Dimensions-ESP32-3248S035.jpg)
+<a href="url"><img src="images/20240121_124444.jpg" align="center" height="600" width="500" ></a>|<a href="url"><img src="images/20240121_124612.jpg" align="center" height="600" width="500"></a>
+<p href="url"><img src="images/Dimensions-ESP32-3248S035.jpg" align="right" height="380" width="550" ></p>
 
 ### Required hardware
 
@@ -34,19 +34,20 @@ There are no 'over the air' updates. Each update has to be applied manually.
 ### Images
 3.5" display               |  Capacitive
 :-------------------------:|:-------------------------:
-![3](images/20240121_124822.jpg)|![4](images/20240121_124828.jpg)
-![5](images/20240121_124833.jpg)|![6](images/20240121_124837.jpg)
-![7](images/20240121_124842.jpg)|![7](images/20240121_124848.jpg)
-![9](images/20240121_124854.jpg)|![10](images/20240121_125012.jpg)
+<a href="url"><img src="images/20240121_124822.jpg" align="center" height="600" width="450" ></a>|<a href="url"><img src="images/20240121_124828.jpg" align="center" height="600" width="450" ></a>
+<a href="url"><img src="images/20240121_124833.jpg" align="center" height="600" width="450" ></a>|<a href="url"><img src="images/20240121_124837.jpg" align="center" height="600" width="450" ></a>
+<a href="url"><img src="images/20240121_124842.jpg" align="center" height="600" width="450" ></a>|<a href="url"><img src="images/20240121_124848.jpg" align="center" height="600" width="450" ></a>
+<a href="url"><img src="images/20240121_124854.jpg" align="center" height="600" width="450" ></a>|<a href="url"><img src="images/20240121_125012.jpg" align="center" height="600" width="450" ></a>
 
 ### GT911 issue and fix
 Touch driver [GT911 uses an INT](https://github.com/TAMCTec/gt911-arduino/issues/7) line for selecting I2C address during bus initialization. Unfortunately,
 you might find a missing resistor (R25) onboard which breaks this line between GPIO25 and GT911 INT.
 To fix the derived issues the easiest way is to bridge the pads of R25 with soldering. See below.
 
+
 3.5" display               |  GT911
 :-------------------------:|:-------------------------:
-![13](images/R25missing.jpg)|![14](images/R25bridged.jpg)
+<a href="url"><img src="images/R25missing.jpg" align="center" height="400" width="400" ></a>|<a href="url"><img src="images/R25bridged.jpg" align="center" height="400" width="400" ></a>
 
 ### Enclosure
 
