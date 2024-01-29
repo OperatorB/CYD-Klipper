@@ -3,8 +3,6 @@ An implementation of a wireless Klipper status display on an ESP32 + 3.5" screen
 
 A simple and cheap solution to use a dedicated screen with Klipper, a 3d printing Firmware.
 
-***Note - this display might have a missing resistor R25 whose solder pads needs to be bridged with soldering! Check below for more details.***
-
 ESP32-3248S035C            |  3.5" display
 :-------------------------:|:-------------------------:
 <a href="url"><img src="images/20240121_124444.jpg" align="center" height=90% width=90% ></a>|<a href="url"><img src="images/20240121_124612.jpg" align="center" height=95% width=95%></a>
