@@ -1,5 +1,5 @@
 {
-    "name": "CYD-Klipper",
+    "name": "CYD-Klipper-3.5-display",
     "new_install_prompt_erase": true,
     "builds": [
         {
