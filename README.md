@@ -7,8 +7,8 @@ A simple and cheap solution to use a dedicated screen with Klipper, a 3d printin
 
 ESP32-3248S035C            |  3.5" display
 :-------------------------:|:-------------------------:
-<a href="url"><img src="images/20240121_124444.jpg" align="center" height="600" width="500" ></a>|<a href="url"><img src="images/20240121_124612.jpg" align="center" height="600" width="500"></a>
-<p href="url"><img src="images/Dimensions-ESP32-3248S035.jpg" align="right" height="380" width="550" ></p>
+<a href="url"><img src="images/20240121_124444.jpg" align="center" height=90% width=90% ></a>|<a href="url"><img src="images/20240121_124612.jpg" align="center" height=95% width=95%></a>
+<p href="url"><img src="images/Dimensions-ESP32-3248S035.jpg" align="right" height=60% width=60% ></p>
 
 ### Required hardware
 
@@ -34,10 +34,10 @@ There are no 'over the air' updates. Each update has to be applied manually.
 ### Images
 3.5" display               |  Capacitive
 :-------------------------:|:-------------------------:
-<a href="url"><img src="images/20240121_124822.jpg" align="center" height="600" width="450" ></a>|<a href="url"><img src="images/20240121_124828.jpg" align="center" height="600" width="450" ></a>
-<a href="url"><img src="images/20240121_124833.jpg" align="center" height="600" width="450" ></a>|<a href="url"><img src="images/20240121_124837.jpg" align="center" height="600" width="450" ></a>
-<a href="url"><img src="images/20240121_124842.jpg" align="center" height="600" width="450" ></a>|<a href="url"><img src="images/20240121_124848.jpg" align="center" height="600" width="450" ></a>
-<a href="url"><img src="images/20240121_124854.jpg" align="center" height="600" width="450" ></a>|<a href="url"><img src="images/20240121_125012.jpg" align="center" height="600" width="450" ></a>
+<a href="url"><img src="images/20240121_124822.jpg" align="center" height=95% width=95% ></a>|<a href="url"><img src="images/20240121_124828.jpg" align="center" height=90% width=90% ></a>
+<a href="url"><img src="images/20240121_124833.jpg" align="center" height=95% width=95% ></a>|<a href="url"><img src="images/20240121_124837.jpg" align="center" height=90% width=90% ></a>
+<a href="url"><img src="images/20240121_124842.jpg" align="center" height=95% width=95% ></a>|<a href="url"><img src="images/20240121_124848.jpg" align="center" height=90% width=90% ></a>
+<a href="url"><img src="images/20240121_124854.jpg" align="center" height=95% width=95% ></a>|<a href="url"><img src="images/20240121_125012.jpg" align="center" height=90% width=90% ></a>
 
 ### GT911 issue and fix
 Touch driver [GT911 uses an INT](https://github.com/TAMCTec/gt911-arduino/issues/7) line for selecting I2C address during bus initialization. Unfortunately,
@@ -47,7 +47,7 @@ To fix the derived issues the easiest way is to bridge the pads of R25 with sold
 
 3.5" display               |  GT911
 :-------------------------:|:-------------------------:
-<a href="url"><img src="images/R25missing.jpg" align="center" height="400" width="400" ></a>|<a href="url"><img src="images/R25bridged.jpg" align="center" height="400" width="400" ></a>
+<a href="url"><img src="images/R25missing.jpg" align="center" height=80% width=80% ></a>|<a href="url"><img src="images/R25bridged.jpg" align="center" height=80% width=80% ></a>
 
 ### Enclosure
 
