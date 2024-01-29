@@ -39,16 +39,6 @@ There are no 'over the air' updates. Each update has to be applied manually.
 <a href="url"><img src="images/20240121_124842.jpg" align="center" height=95% width=95% ></a>|<a href="url"><img src="images/20240121_124848.jpg" align="center" height=90% width=90% ></a>
 <a href="url"><img src="images/20240121_124854.jpg" align="center" height=95% width=95% ></a>|<a href="url"><img src="images/20240121_125012.jpg" align="center" height=90% width=90% ></a>
 
-### GT911 issue and fix
-~~Touch driver [GT911 uses an INT](https://github.com/TAMCTec/gt911-arduino/issues/7) line for selecting I2C address during bus initialization. Unfortunately,
-you might find a missing resistor (R25) onboard which breaks this line between GPIO25 and GT911 INT.
-To fix the derived issues the easiest way is to bridge the pads of R25 with soldering. See below.~~
-
-
-3.5" display               |  GT911
-:-------------------------:|:-------------------------:
-<a href="url"><img src="images/R25missing.jpg" align="center" height=80% width=80% ></a>|<a href="url"><img src="images/R25bridged.jpg" align="center" height=80% width=80% ></a>
-
 ### Enclosure
 
 [Display Enclosure ESP32-3248S035](https://cults3d.com/:1482031)
