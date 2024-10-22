@@ -23,7 +23,7 @@ A ESP32-3248S035C is required to run this project. You can find out where to buy
 
 ### Install
 
-[There is a web-based installer available. This is only supported on Chrome, Edge or Opera, and only on Desktop.](https://OperatorB.github.io/CYD-Klipper/)
+[There is a web-based installer available. This is only supported on Chrome, Edge or Opera, and only on Desktop.](https://operatorb.github.io/CYD-Klipper-3.5-display/)
 
 On initial install, all data should be wiped. On updates, data should be able to be kept without issues.
 
